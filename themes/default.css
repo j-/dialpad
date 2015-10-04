@@ -1,0 +1,15 @@
+.phone-button {
+	border: none;
+	outline: 1px solid black;
+	padding: 0;
+}
+
+.phone-button .digit {
+	display: block;
+	font-size: 1em;
+}
+
+.phone-button .alpha {
+	display: block;
+	font-size: 0.5em;
+}
