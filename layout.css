@@ -15,6 +15,11 @@ body {
 	justify-content: space-between;
 }
 
+.phone input,
+.phone button {
+	font-size: 7vh;
+}
+
 .phone-section {
 	flex: 1;
 }
