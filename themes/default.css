@@ -1,5 +1,6 @@
 .phone-display {
-	font-size: 5em;
+	font-size: 10vmin;
+	padding: 0 5vmin;
 }
 
 .phone-button {
@@ -38,7 +39,7 @@
 .action-button {
 	color: #fff;
 	background-color: hsl(0, 0%, 30%);
-	text-shadow: 0.3vh 0.3vh 0 rgba(0, 0, 0, 0.5);
+	text-shadow: 0.3vmin 0.3vmin 0 rgba(0, 0, 0, 0.5);
 	outline: 1px solid #333;
 }
 
