@@ -58,3 +58,7 @@ body {
 .phone-button {
 	flex: 1;
 }
+
+.action-button--dial {
+	flex: 2;
+}
