@@ -21,8 +21,10 @@ function isValid (input, region) {
 var form = document.querySelector('.phone');
 var input = document.querySelector('.phone-input');
 var buttons = document.querySelectorAll('.dialpad-button');
+var backspace = document.querySelector('.action-button--backspace');
 
 form.addEventListener('submit', handleSubmit);
+backspace.addEventListener('click', handleBackspace);
 
 Array.prototype.forEach.call(buttons, function (button) {
 	button.addEventListener('click', handleButtonClick);
@@ -40,6 +42,11 @@ function handleSubmit (e) {
 function handleButtonClick (e) {
 	e.preventDefault();
 	input.value += this.dataset.input;
+}
+
+function handleBackspace (e) {
+	e.preventDefault();
+	input.value = input.value.substring(0, input.value.length - 1);
 }
 
 })();
