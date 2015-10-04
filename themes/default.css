@@ -1,7 +1,11 @@
+.phone-display {
+	font-size: 5em;
+}
+
 .phone-button {
 	border: none;
-	outline: 1px solid black;
 	padding: 0;
+	cursor: pointer;
 }
 
 .phone-button .digit {
@@ -12,4 +16,52 @@
 .phone-button .alpha {
 	display: block;
 	font-size: 0.5em;
+}
+
+/* Colors */
+
+.dialpad-button {
+	background-color: hsl(0, 0%, 90%);
+	outline: 1px solid #aaa;
+}
+
+.dialpad-button:hover,
+.dialpad-button.hover {
+	background-color: hsl(0, 0%, 95%);
+}
+
+.dialpad-button:active,
+.dialpad-button.active {
+	background-color: hsl(0, 0%, 85%);
+}
+
+.action-button {
+	color: #fff;
+	background-color: hsl(0, 0%, 30%);
+	text-shadow: 0.3vh 0.3vh 0 rgba(0, 0, 0, 0.5);
+	outline: 1px solid #333;
+}
+
+.action-button:hover,
+.action-button.hover {
+	background-color: hsl(0, 0%, 35%);
+}
+
+.action-button:active,
+.action-button.active {
+	background-color: hsl(0, 0%, 25%);
+}
+
+.action-button--dial {
+	background-color: hsl(80, 60%, 50%);
+}
+
+.action-button--dial:hover,
+.action-button--dial.hover {
+	background-color: hsl(80, 60%, 55%);
+}
+
+.action-button--dial:active,
+.action-button--dial.active {
+	background-color: hsl(80, 60%, 45%);
 }
