@@ -1,20 +1,8 @@
-(function () {
+import DialpadController from './controller';
 
-/* global phoneUtils */
-
-var settings = {
+const controller = new DialpadController({
 	region: 'AU',
-};
-
-function isValid (input, region) {
-	try {
-		phoneUtils.isValidNumber(input, region);
-		return true;
-	}
-	catch (_) {
-		return false;
-	}
-}
+});
 
 function getButton (ch) {
 	ch = String(ch);
@@ -50,7 +38,7 @@ window.addEventListener('keyup', handleWindowKeyup);
 function handleSubmit (e) {
 	e.preventDefault();
 	var value = input.value;
-	var international = phoneUtils.formatInternational(value, settings.region);
+	var international = controller.formatInternational(value);
 	window.location = 'tel:' + international;
 }
 
@@ -85,5 +73,3 @@ function handleWindowKeyup (e) {
 		getButton(ch).classList.remove('active');
 	}
 }
-
-})();
