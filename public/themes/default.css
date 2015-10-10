@@ -1,6 +1,8 @@
 .phone-display {
 	font-size: 10vmin;
 	padding: 0 5vmin;
+	border: none;
+	outline: none;
 }
 
 .phone-button {
