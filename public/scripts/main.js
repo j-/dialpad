@@ -1,6 +1,6 @@
-import DialpadController from './controller';
+import DialpadController from 'controllers/dialpad';
 
-import ClearButtonView from './views/clear-button';
+import ClearButtonView from 'views/clear-button';
 
 const controller = new DialpadController({
 	region: 'AU',

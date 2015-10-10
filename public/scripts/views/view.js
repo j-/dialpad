@@ -1,4 +1,4 @@
-import Emitter from '../emitter';
+import Emitter from 'utils/emitter';
 
 const ELEMENT = Symbol('element');
 
