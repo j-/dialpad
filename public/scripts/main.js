@@ -1,5 +1,7 @@
 import DialpadController from './controller';
 
+import ClearButtonView from './views/clear-button';
+
 const controller = new DialpadController({
 	region: 'AU',
 });
@@ -21,10 +23,20 @@ function getButton (ch) {
 var form = document.querySelector('.phone');
 var input = document.querySelector('.phone-input');
 var buttons = document.querySelectorAll('.dialpad-button');
-var backspace = document.querySelector('.action-button--backspace');
+
+const clearButtonView = new ClearButtonView({
+	element: document.querySelector('.action-button--backspace'),
+});
+
+clearButtonView.on('backspace', () => {
+	input.value = input.value.substring(0, input.value.length - 1);
+});
+
+clearButtonView.on('clear', () => {
+	input.value = '';
+});
 
 form.addEventListener('submit', handleSubmit);
-backspace.addEventListener('click', handleBackspace);
 
 Array.prototype.forEach.call(buttons, function (button) {
 	button.addEventListener('click', handleButtonClick);
@@ -45,11 +57,6 @@ function handleSubmit (e) {
 function handleButtonClick (e) {
 	e.preventDefault();
 	input.value += this.dataset.input;
-}
-
-function handleBackspace (e) {
-	e.preventDefault();
-	input.value = input.value.substring(0, input.value.length - 1);
 }
 
 function handleWindowKeydown (e) {
