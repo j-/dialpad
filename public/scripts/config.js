@@ -9,8 +9,8 @@ System.config({
     ]
   },
   paths: {
-    "github:*": "lib/github/*",
-    "npm:*": "lib/npm/*"
+    "github:*": "/lib/github/*",
+    "npm:*": "/lib/npm/*"
   },
 
   map: {
