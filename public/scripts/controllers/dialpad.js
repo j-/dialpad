@@ -1,13 +1,8 @@
-import Emitter from 'utils/emitter';
+import Controller from './controller';
 
 /* global phoneUtils */
 
-export default class DialpadController extends Emitter {
-	constructor (...args) {
-		super();
-		Object.assign(this, ...args);
-	}
-
+export default class DialpadController extends Controller {
 	static formatInternational (value, region) {
 		return phoneUtils.formatInternational(value, region);
 	}
