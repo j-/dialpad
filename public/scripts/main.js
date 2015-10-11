@@ -42,8 +42,7 @@ const typeView = new PhoneNumberTypeView({
 });
 
 controller.on('setvalue', (value) => typeView.value = value);
-// Not yet designed, do not show
-if (false) { info.appendChild(typeView.element) };
+info.appendChild(typeView.element);
 
 clearButtonView.on('backspace', () => controller.backspace());
 clearButtonView.on('clear', () => controller.clear());
