@@ -23,9 +23,12 @@ export default class DialpadController extends Controller {
 		}, ...args);
 	}
 
-	dial ({ number = this.value, international = true, region = this.region } = {}) {
+	dial ({ number = this.value, international = false, region = this.region } = {}) {
 		if (international) {
 			number = phoneUtils.formatInternational(number, region);
+		}
+		else {
+			number = phoneUtils.formatNational(number, region);
 		}
 		window.location = `tel:${number}`;
 	}
