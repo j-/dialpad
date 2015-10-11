@@ -2,6 +2,7 @@ import DialpadController from 'controllers/dialpad';
 
 import ClearButtonView from 'views/clear-button';
 import InputView from 'views/input';
+import PhoneNumberTypeView from 'views/phone-number-type';
 
 const controller = new DialpadController({
 	region: 'AU',
@@ -23,6 +24,7 @@ function getButton (ch) {
 
 var form = document.querySelector('.phone');
 var buttons = document.querySelectorAll('.dialpad-button');
+var info = document.querySelector('.phone-section--info');
 
 const clearButtonView = new ClearButtonView({
 	element: document.querySelector('.action-button--backspace'),
@@ -31,6 +33,15 @@ const clearButtonView = new ClearButtonView({
 const inputView = new InputView({
 	element: document.querySelector('.phone-input'),
 });
+
+const typeView = new PhoneNumberTypeView({
+	region: controller.region,
+	value: controller.value,
+});
+
+controller.on('setvalue', (value) => typeView.value = value);
+// Not yet designed, do not show
+if (false) { info.appendChild(typeView.element) };
 
 clearButtonView.on('backspace', () => controller.backspace());
 clearButtonView.on('clear', () => controller.clear());
