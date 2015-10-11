@@ -7,6 +7,10 @@ body {
 	font-family: Arial, sans-serif;
 }
 
+.sr-only {
+	display: none;
+}
+
 .phone {
 	width: 100%;
 	height: 100%;

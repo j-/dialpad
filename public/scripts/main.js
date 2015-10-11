@@ -1,3 +1,5 @@
+import 'font-awesome';
+
 import DialpadController from 'controllers/dialpad';
 
 import ClearButtonView from 'views/clear-button';
