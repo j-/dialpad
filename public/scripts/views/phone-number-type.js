@@ -1,6 +1,8 @@
 import View from './view';
+import libphonenumber from 'google-libphonenumber';
 
-/* global phoneUtils */
+const pnf = libphonenumber.PhoneNumberFormat;
+const phoneUtils = libphonenumber.PhoneNumberUtil.getInstance();
 
 export default class PhoneNumberTypeView extends View {
 	formatType (type = 'UNKNOWN') {
@@ -13,7 +15,8 @@ export default class PhoneNumberTypeView extends View {
 	getNumberType (number, { region = this.region } = {}) {
 		let type = null;
 		try {
-			type = phoneUtils.getNumberType(number, region);
+			number = phoneUtils.parse(number, region);
+			type = phoneUtils.getNumberType(number);
 		}
 		catch (e) {
 			// Swallow

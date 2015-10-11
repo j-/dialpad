@@ -1,7 +1,8 @@
 import Controller from './controller';
+import libphonenumber from 'google-libphonenumber';
 
-/* global phoneUtils */
-
+const pnf = libphonenumber.PhoneNumberFormat;
+const phoneUtils = libphonenumber.PhoneNumberUtil.getInstance();
 const VALUE = Symbol('value');
 
 export default class DialpadController extends Controller {
@@ -24,23 +25,14 @@ export default class DialpadController extends Controller {
 	}
 
 	dial ({ number = this.value, international = false, region = this.region } = {}) {
-		if (international) {
-			number = phoneUtils.formatInternational(number, region);
-		}
-		else {
-			number = phoneUtils.formatNational(number, region);
-		}
+		number = phoneUtils.parse(number, region);
+		number = phoneUtils.format(number, international ? pnf.INTERNATIONAL : pnf.NATIONAL);
 		window.location = `tel:${number}`;
 	}
 
 	isValidNumber ({ number = this.value, region = this.region } = {}) {
-		try {
-			phoneUtils.isValidNumber(number, region);
-			return true;
-		}
-		catch (_) {
-			return false;
-		}
+		number = phoneUtils.parse(number, region);
+		return phoneUtils.isValidNumber(number);
 	}
 
 	set value (value) {

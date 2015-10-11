@@ -6,7 +6,8 @@
     },
     "configFile": "public/scripts/config.js",
     "dependencies": {
-      "font-awesome": "npm:font-awesome@^4.4.0"
+      "font-awesome": "npm:font-awesome@^4.4.0",
+      "google-libphonenumber": "npm:google-libphonenumber@^1.0.7"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
