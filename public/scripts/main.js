@@ -49,9 +49,7 @@ controller.on('setvalue', (value) => {
 
 function handleSubmit (e) {
 	e.preventDefault();
-	var value = controller.value;
-	var international = controller.formatInternational(value);
-	window.location = 'tel:' + international;
+	controller.dial();
 }
 
 function handleButtonClick (e) {

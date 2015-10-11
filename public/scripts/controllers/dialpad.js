@@ -23,6 +23,13 @@ export default class DialpadController extends Controller {
 		}, ...args);
 	}
 
+	dial (number = this.value, international = true) {
+		if (international) {
+			number = this.formatInternational(number);
+		}
+		window.location = `tel:${number}`;
+	}
+
 	static formatInternational (value, region) {
 		return phoneUtils.formatInternational(value, region);
 	}
