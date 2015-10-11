@@ -4,6 +4,7 @@ body {
 	padding: 0;
 	width: 100%;
 	height: 100%;
+	font-family: Arial, sans-serif;
 }
 
 .phone {
@@ -22,6 +23,10 @@ body {
 
 .phone-section {
 	flex: 1;
+}
+
+.phone-section--info {
+	flex: 0.5;
 }
 
 .phone-section--display {

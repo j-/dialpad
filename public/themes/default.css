@@ -23,6 +23,11 @@
 
 /* Colors */
 
+.phone-section--info {
+	background-color: #333;
+	color: #fff;
+}
+
 .dialpad-button {
 	background-color: hsl(0, 0%, 90%);
 	outline: 1px solid #aaa;
