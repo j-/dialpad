@@ -40,6 +40,7 @@ Array.prototype.forEach.call(buttons, function (button) {
 window.addEventListener('keydown', handleWindowKeydown);
 window.addEventListener('keyup', handleWindowKeyup);
 
+input.value = controller.value;
 controller.on('setvalue', (value) => {
 	input.value = value;
 });
