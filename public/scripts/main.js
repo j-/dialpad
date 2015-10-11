@@ -28,13 +28,8 @@ const clearButtonView = new ClearButtonView({
 	element: document.querySelector('.action-button--backspace'),
 });
 
-clearButtonView.on('backspace', () => {
-	input.value = input.value.substring(0, input.value.length - 1);
-});
-
-clearButtonView.on('clear', () => {
-	input.value = '';
-});
+clearButtonView.on('backspace', () => controller.backspace());
+clearButtonView.on('clear', () => controller.clear());
 
 form.addEventListener('submit', handleSubmit);
 
@@ -45,18 +40,22 @@ Array.prototype.forEach.call(buttons, function (button) {
 window.addEventListener('keydown', handleWindowKeydown);
 window.addEventListener('keyup', handleWindowKeyup);
 
+controller.on('setvalue', (value) => {
+	input.value = value;
+});
+
 /* Handlers */
 
 function handleSubmit (e) {
 	e.preventDefault();
-	var value = input.value;
+	var value = controller.value;
 	var international = controller.formatInternational(value);
 	window.location = 'tel:' + international;
 }
 
 function handleButtonClick (e) {
 	e.preventDefault();
-	input.value += this.dataset.input;
+	controller.value += this.dataset.input;
 }
 
 function handleWindowKeydown (e) {
