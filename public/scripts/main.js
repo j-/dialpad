@@ -49,6 +49,7 @@ inputView.value = controller.value;
 controller.on('setvalue', (value) => inputView.value = value);
 // Input changes value, update controller
 inputView.on('change', () => controller.value = inputView.value);
+inputView.on('keyup', () => controller.value = inputView.value);
 
 /* Handlers */
 
