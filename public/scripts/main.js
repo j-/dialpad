@@ -1,6 +1,7 @@
 import DialpadController from 'controllers/dialpad';
 
 import ClearButtonView from 'views/clear-button';
+import InputView from 'views/input';
 
 const controller = new DialpadController({
 	region: 'AU',
@@ -21,11 +22,14 @@ function getButton (ch) {
 /* Initialization */
 
 var form = document.querySelector('.phone');
-var input = document.querySelector('.phone-input');
 var buttons = document.querySelectorAll('.dialpad-button');
 
 const clearButtonView = new ClearButtonView({
 	element: document.querySelector('.action-button--backspace'),
+});
+
+const inputView = new InputView({
+	element: document.querySelector('.phone-input'),
 });
 
 clearButtonView.on('backspace', () => controller.backspace());
@@ -40,10 +44,11 @@ Array.prototype.forEach.call(buttons, function (button) {
 window.addEventListener('keydown', handleWindowKeydown);
 window.addEventListener('keyup', handleWindowKeyup);
 
-input.value = controller.value;
-controller.on('setvalue', (value) => {
-	input.value = value;
-});
+inputView.value = controller.value;
+// Controller changes value, update input
+controller.on('setvalue', (value) => inputView.value = value);
+// Input changes value, update controller
+inputView.on('change', () => controller.value = inputView.value);
 
 /* Handlers */
 
