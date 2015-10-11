@@ -23,33 +23,21 @@ export default class DialpadController extends Controller {
 		}, ...args);
 	}
 
-	dial (number = this.value, international = true) {
+	dial ({ number = this.value, international = true, region = this.region } = {}) {
 		if (international) {
-			number = this.formatInternational(number);
+			number = phoneUtils.formatInternational(number, region);
 		}
 		window.location = `tel:${number}`;
 	}
 
-	static formatInternational (value, region) {
-		return phoneUtils.formatInternational(value, region);
-	}
-
-	formatInternational (value) {
-		return DialpadController.formatInternational(value, this.region);
-	}
-
-	static isValidNumber (input, region) {
+	isValidNumber ({ number = this.value, region = this.region } = {}) {
 		try {
-			phoneUtils.isValidNumber(input, region);
+			phoneUtils.isValidNumber(number, region);
 			return true;
 		}
 		catch (_) {
 			return false;
 		}
-	}
-
-	isValidNumber (input) {
-		return DialpadController.isValidNumber(input, this.region);
 	}
 
 	set value (value) {
